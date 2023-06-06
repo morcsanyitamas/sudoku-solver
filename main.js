@@ -8,17 +8,8 @@
 async function fetchBorad(url) {
   const data = await fetch(url, {
     method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
   });
-  const dataObject = data.json();
-  return dataObject;
-  /*
-  .then((response) => response.json())
-  .then((data) => console.log(data))
-  .catch((error) => console.log(error));
-  */
+  return data.json();
 }
 
 function getBoardFromJson(data) {
@@ -41,6 +32,8 @@ async function getEmptyBoard(difficulty) {
   if (url !== null) {
     const data = await fetchBorad(url);
     return getBoardFromJson(data);
+  } else {
+    return [];
   }
 }
 

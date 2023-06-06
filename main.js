@@ -12,7 +12,7 @@ async function fetchBorad(url) {
   return data.json();
 }
 
-function getBoardFromJson(data) {
+function getBoardFromData(data) {
   return data.board;
 }
 
@@ -31,7 +31,7 @@ async function getEmptyBoard(difficulty) {
   const url = createBoardUrl(difficulty);
   if (url !== null) {
     const data = await fetchBorad(url);
-    return getBoardFromJson(data);
+    return getBoardFromData(data);
   } else {
     return [];
   }
@@ -54,7 +54,7 @@ function solveBoard(board) {
 }
 
 async function main() {
-  const difficulty = "easy";
+  const difficulty = "esy";
   const emptyBoard = await getEmptyBoard(difficulty);
   displayBorad(emptyBoard);
   const solved = solveBoard(emptyBoard);

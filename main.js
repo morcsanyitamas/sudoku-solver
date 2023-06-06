@@ -26,14 +26,13 @@ function getBoardFromJson(data) {
 }
 
 function createBoardUrl(difficulty) {
-  if (
-    difficulty === "easy" ||
-    difficulty === "medium" ||
-    difficulty === "hard"
-  ) {
-    return `https://sugoku.onrender.com/board?difficulty=${difficulty}`;
-  } else {
-    return null;
+  switch (difficulty) {
+    case "easy":
+    case "medium":
+    case "hard":
+      return `https://sugoku.onrender.com/board?difficulty=${difficulty}`;
+    default:
+      return null;
   }
 }
 
